@@ -653,6 +653,11 @@ bool ADBFrameBuffer::checkScreenCapOptions()
     return adb.exitSuccess();
 }
 
+/* Check for external program minigzip on host,
+ * this will be fully commented upon testing,
+ * fully omitted if minigzip is implemented succesfully
+ */
+
 bool ADBFrameBuffer::checkCompressSupport()
 {
     bool ret;
@@ -703,6 +708,11 @@ void ADBFrameBuffer::setConnected(bool state)
         emit deviceDisconnected();
     }
 }
+
+/* minigzip implementation on host,
+ * using minigzip source from madler/zlib
+ * instead of android', work starts here
+ */
 
 int ADBFrameBuffer::minigzipDecompress(QByteArray &bytes)
 {
